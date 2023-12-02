@@ -1,0 +1,14 @@
+<section>
+  @if(idLoggedIn) {
+  <h1>Welcome {{ name }}</h1>
+  <img src="https://github.com/dtoro-dev.png" alt="photo" (click)="greet()" />
+  } @else {
+    <p>Iniciar Sesión</p>
+    <button (click)="idLoggedIn = true">Log In</button>
+  }
+  <game-list username="{{ name }}" (addFavoriteEvent)="getFavorite($event)" />
+
+  @if (favGame) {
+    <p>Favorite Game: {{ favGame }}</p>
+  }
+</section>
